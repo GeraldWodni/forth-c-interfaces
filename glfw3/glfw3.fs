@@ -7,6 +7,10 @@
 \ As all comments are stripped during the compilation, please
 \ insert the copyright notice of the original file here.
 
+c-library glfw3
+s" glfw" add-lib
+\c #include<GLFW/glfw3.h>
+
 \ ----===< int constants ===>-----
 #3	constant GLFW_VERSION_MAJOR
 #3	constant GLFW_VERSION_MINOR
@@ -468,3 +472,5 @@ c-function glfwExtensionSupported glfwExtensionSupported s -- n	( extension -- )
 c-function glfwGetProcAddress glfwGetProcAddress s -- a	( procname -- )
 c-function glfwVulkanSupported glfwVulkanSupported  -- n	( -- )
 c-function glfwGetRequiredInstanceExtensions glfwGetRequiredInstanceExtensions a -- a	( count -- )
+
+end-c-library
