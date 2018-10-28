@@ -8,7 +8,7 @@
 #include <GL/glext.h>
 %}
 
-#define SWIG_FORTH_GFORTH_INCLUDE "use-include-section"
+#define SWIG_FORTH_GFORTH_LIBRARY "GL"
 
 #define GL_GLEXT_PROTOTYPES
 #define __STDC__

@@ -9,7 +9,7 @@
 
 \ ----===< prefix >===-----
 c-library gl
-s" gl" add-lib
+s" GL" add-lib
 \c #define GL_GLEXT_PROTOTYPES
 \c #include <stdint.h>
 \c #include <GL/gl.h>
