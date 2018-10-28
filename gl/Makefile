@@ -1,11 +1,10 @@
-PROJECT    = glfw3
+PROJECT    = gl
 SWIG       = swig
 BUILD      = build
 OUTPUT     = $(BUILD)/$(PROJECT)
 INTERFACE  = $(PROJECT).i
 INCLUDES   = -I/usr/include
-# To illustrate how -no-gforth-copy-includes is used, see here and glfw3.i
-OPTIONS	   = -forth -no-sectioncomments -stackcomments -use-structs -no-gforth-copy-includes $(INCLUDES)
+OPTIONS	   = -forth -no-sectioncomments -stackcomments -use-structs $(INCLUDES)
 
 all: $(OUTPUT).fs $(OUTPUT).f $(OUTPUT).fth
 	@ echo "All created"
