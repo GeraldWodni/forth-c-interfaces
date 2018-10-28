@@ -7,24 +7,18 @@
 \ As all comments are stripped during the compilation, please
 \ insert the copyright notice of the original file here.
 
-\ ----===< int constants ===>-----
+\ ----===< prefix >===-----
+( none )
+
+\ ----===< int constants >===-----
 #3	constant GLFW_VERSION_MAJOR
-#3	constant GLFW_VERSION_MINOR
-#0	constant GLFW_VERSION_REVISION
+#2	constant GLFW_VERSION_MINOR
+#1	constant GLFW_VERSION_REVISION
 #1	constant GLFW_TRUE
 #0	constant GLFW_FALSE
 #0	constant GLFW_RELEASE
 #1	constant GLFW_PRESS
 #2	constant GLFW_REPEAT
-#0	constant GLFW_HAT_CENTERED
-#1	constant GLFW_HAT_UP
-#2	constant GLFW_HAT_RIGHT
-#4	constant GLFW_HAT_DOWN
-#8	constant GLFW_HAT_LEFT
-#3	constant GLFW_HAT_RIGHT_UP
-#6	constant GLFW_HAT_RIGHT_DOWN
-#9	constant GLFW_HAT_LEFT_UP
-#12	constant GLFW_HAT_LEFT_DOWN
 #-1	constant GLFW_KEY_UNKNOWN
 #32	constant GLFW_KEY_SPACE
 #39	constant GLFW_KEY_APOSTROPHE
@@ -151,8 +145,6 @@
 #2	constant GLFW_MOD_CONTROL
 #4	constant GLFW_MOD_ALT
 #8	constant GLFW_MOD_SUPER
-#16	constant GLFW_MOD_CAPS_LOCK
-#32	constant GLFW_MOD_NUM_LOCK
 #0	constant GLFW_MOUSE_BUTTON_1
 #1	constant GLFW_MOUSE_BUTTON_2
 #2	constant GLFW_MOUSE_BUTTON_3
@@ -182,34 +174,6 @@
 #14	constant GLFW_JOYSTICK_15
 #15	constant GLFW_JOYSTICK_16
 #15	constant GLFW_JOYSTICK_LAST
-#0	constant GLFW_GAMEPAD_BUTTON_A
-#1	constant GLFW_GAMEPAD_BUTTON_B
-#2	constant GLFW_GAMEPAD_BUTTON_X
-#3	constant GLFW_GAMEPAD_BUTTON_Y
-#4	constant GLFW_GAMEPAD_BUTTON_LEFT_BUMPER
-#5	constant GLFW_GAMEPAD_BUTTON_RIGHT_BUMPER
-#6	constant GLFW_GAMEPAD_BUTTON_BACK
-#7	constant GLFW_GAMEPAD_BUTTON_START
-#8	constant GLFW_GAMEPAD_BUTTON_GUIDE
-#9	constant GLFW_GAMEPAD_BUTTON_LEFT_THUMB
-#10	constant GLFW_GAMEPAD_BUTTON_RIGHT_THUMB
-#11	constant GLFW_GAMEPAD_BUTTON_DPAD_UP
-#12	constant GLFW_GAMEPAD_BUTTON_DPAD_RIGHT
-#13	constant GLFW_GAMEPAD_BUTTON_DPAD_DOWN
-#14	constant GLFW_GAMEPAD_BUTTON_DPAD_LEFT
-#14	constant GLFW_GAMEPAD_BUTTON_LAST
-#0	constant GLFW_GAMEPAD_BUTTON_CROSS
-#1	constant GLFW_GAMEPAD_BUTTON_CIRCLE
-#2	constant GLFW_GAMEPAD_BUTTON_SQUARE
-#3	constant GLFW_GAMEPAD_BUTTON_TRIANGLE
-#0	constant GLFW_GAMEPAD_AXIS_LEFT_X
-#1	constant GLFW_GAMEPAD_AXIS_LEFT_Y
-#2	constant GLFW_GAMEPAD_AXIS_RIGHT_X
-#3	constant GLFW_GAMEPAD_AXIS_RIGHT_Y
-#4	constant GLFW_GAMEPAD_AXIS_LEFT_TRIGGER
-#5	constant GLFW_GAMEPAD_AXIS_RIGHT_TRIGGER
-#5	constant GLFW_GAMEPAD_AXIS_LAST
-#0	constant GLFW_NO_ERROR
 #65537	constant GLFW_NOT_INITIALIZED
 #65538	constant GLFW_NO_CURRENT_CONTEXT
 #65539	constant GLFW_INVALID_ENUM
@@ -228,10 +192,6 @@
 #131078	constant GLFW_AUTO_ICONIFY
 #131079	constant GLFW_FLOATING
 #131080	constant GLFW_MAXIMIZED
-#131081	constant GLFW_CENTER_CURSOR
-#131082	constant GLFW_TRANSPARENT_FRAMEBUFFER
-#131083	constant GLFW_HOVERED
-#131084	constant GLFW_FOCUS_ON_SHOW
 #135169	constant GLFW_RED_BITS
 #135170	constant GLFW_GREEN_BITS
 #135171	constant GLFW_BLUE_BITS
@@ -259,12 +219,6 @@
 #139273	constant GLFW_CONTEXT_RELEASE_BEHAVIOR
 #139274	constant GLFW_CONTEXT_NO_ERROR
 #139275	constant GLFW_CONTEXT_CREATION_API
-#139276	constant GLFW_SCALE_TO_MONITOR
-#143361	constant GLFW_COCOA_RETINA_FRAMEBUFFER
-#143362	constant GLFW_COCOA_FRAME_NAME
-#143363	constant GLFW_COCOA_GRAPHICS_SWITCHING
-#147457	constant GLFW_X11_CLASS_NAME
-#147458	constant GLFW_X11_INSTANCE_NAME
 #0	constant GLFW_NO_API
 #196609	constant GLFW_OPENGL_API
 #196610	constant GLFW_OPENGL_ES_API
@@ -277,7 +231,6 @@
 #208897	constant GLFW_CURSOR
 #208898	constant GLFW_STICKY_KEYS
 #208899	constant GLFW_STICKY_MOUSE_BUTTONS
-#208900	constant GLFW_LOCK_KEY_MODS
 #212993	constant GLFW_CURSOR_NORMAL
 #212994	constant GLFW_CURSOR_HIDDEN
 #212995	constant GLFW_CURSOR_DISABLED
@@ -286,7 +239,6 @@
 #217090	constant GLFW_RELEASE_BEHAVIOR_NONE
 #221185	constant GLFW_NATIVE_CONTEXT_API
 #221186	constant GLFW_EGL_CONTEXT_API
-#221187	constant GLFW_OSMESA_CONTEXT_API
 #221185	constant GLFW_ARROW_CURSOR
 #221186	constant GLFW_IBEAM_CURSOR
 #221187	constant GLFW_CROSSHAIR_CURSOR
@@ -295,9 +247,6 @@
 #221190	constant GLFW_VRESIZE_CURSOR
 #262145	constant GLFW_CONNECTED
 #262146	constant GLFW_DISCONNECTED
-#327681	constant GLFW_JOYSTICK_HAT_BUTTONS
-#331777	constant GLFW_COCOA_CHDIR_RESOURCES
-#331778	constant GLFW_COCOA_MENUBAR
 #-1	constant GLFW_DONT_CARE
 
 \ -------===< structs >===--------
@@ -323,11 +272,6 @@ begin-structure GLFWimage
 	drop 0 4 +field GLFWimage-width
 	drop 8 8 +field GLFWimage-pixels
 drop 16 end-structure
-\ GLFWgamepadstate
-begin-structure GLFWgamepadstate
-	drop 0 15 +field GLFWgamepadstate-buttons
-	drop 16 24 +field GLFWgamepadstate-axes
-drop 40 end-structure
 
 \ ------===< callbacks >===-------
 	( <noname> -- )
@@ -339,8 +283,6 @@ drop 40 end-structure
 	( <noname> -- )
 	( <noname> <noname> -- )
 	( <noname> <noname> -- )
-	( <noname> <noname> -- )
-	( <noname> <noname> <noname> -- )
 	( <noname> <noname> <noname> -- )
 	( <noname> <noname> <noname> <noname> -- )
 	( <noname> <noname> <noname> -- )
@@ -356,19 +298,14 @@ drop 40 end-structure
 \ ------===< functions >===-------
 EXTERN: "C" int glfwInit(  );	( -- )
 EXTERN: "C" void glfwTerminate(  );	( -- )
-EXTERN: "C" void glfwInitHint( int hint, int value );	( hint value -- )
 EXTERN: "C" void glfwGetVersion( void * major, void * minor, void * rev );	( major minor rev -- )
 EXTERN: "C" char * glfwGetVersionString(  );	( -- )
-EXTERN: "C" int glfwGetError( void * description );	( description -- )
 EXTERN: "C" void * glfwSetErrorCallback( void * cbfun );	( cbfun -- )
 EXTERN: "C" void * glfwGetMonitors( void * count );	( count -- )
 EXTERN: "C" void * glfwGetPrimaryMonitor(  );	( -- )
 EXTERN: "C" void glfwGetMonitorPos( void * monitor, void * xpos, void * ypos );	( monitor xpos ypos -- )
 EXTERN: "C" void glfwGetMonitorPhysicalSize( void * monitor, void * widthMM, void * heightMM );	( monitor widthMM heightMM -- )
-EXTERN: "C" void glfwGetMonitorContentScale( void * monitor, void * xscale, void * yscale );	( monitor xscale yscale -- )
 EXTERN: "C" char * glfwGetMonitorName( void * monitor );	( monitor -- )
-EXTERN: "C" void glfwSetMonitorUserPointer( void * monitor, void * pointer );	( monitor pointer -- )
-EXTERN: "C" void * glfwGetMonitorUserPointer( void * monitor );	( monitor -- )
 EXTERN: "C" void * glfwSetMonitorCallback( void * cbfun );	( cbfun -- )
 EXTERN: "C" void * glfwGetVideoModes( void * monitor, void * count );	( monitor count -- )
 EXTERN: "C" void * glfwGetVideoMode( void * monitor );	( monitor -- )
@@ -377,7 +314,6 @@ EXTERN: "C" void * glfwGetGammaRamp( void * monitor );	( monitor -- )
 EXTERN: "C" void glfwSetGammaRamp( void * monitor, void * ramp );	( monitor ramp -- )
 EXTERN: "C" void glfwDefaultWindowHints(  );	( -- )
 EXTERN: "C" void glfwWindowHint( int hint, int value );	( hint value -- )
-EXTERN: "C" void glfwWindowHintString( int hint, char * value );	( hint value -- )
 EXTERN: "C" void * glfwCreateWindow( int width, int height, char * title, void * monitor, void * share );	( width height title monitor share -- )
 EXTERN: "C" void glfwDestroyWindow( void * window );	( window -- )
 EXTERN: "C" int glfwWindowShouldClose( void * window );	( window -- )
@@ -392,20 +328,15 @@ EXTERN: "C" void glfwSetWindowAspectRatio( void * window, int numer, int denom )
 EXTERN: "C" void glfwSetWindowSize( void * window, int width, int height );	( window width height -- )
 EXTERN: "C" void glfwGetFramebufferSize( void * window, void * width, void * height );	( window width height -- )
 EXTERN: "C" void glfwGetWindowFrameSize( void * window, void * left, void * top, void * right, void * bottom );	( window left top right bottom -- )
-EXTERN: "C" void glfwGetWindowContentScale( void * window, void * xscale, void * yscale );	( window xscale yscale -- )
-EXTERN: "C" float glfwGetWindowOpacity( void * window );	( window -- )
-EXTERN: "C" void glfwSetWindowOpacity( void * window, float opacity );	( window opacity -- )
 EXTERN: "C" void glfwIconifyWindow( void * window );	( window -- )
 EXTERN: "C" void glfwRestoreWindow( void * window );	( window -- )
 EXTERN: "C" void glfwMaximizeWindow( void * window );	( window -- )
 EXTERN: "C" void glfwShowWindow( void * window );	( window -- )
 EXTERN: "C" void glfwHideWindow( void * window );	( window -- )
 EXTERN: "C" void glfwFocusWindow( void * window );	( window -- )
-EXTERN: "C" void glfwRequestWindowAttention( void * window );	( window -- )
 EXTERN: "C" void * glfwGetWindowMonitor( void * window );	( window -- )
 EXTERN: "C" void glfwSetWindowMonitor( void * window, void * monitor, int xpos, int ypos, int width, int height, int refreshRate );	( window monitor xpos ypos width height refreshRate -- )
 EXTERN: "C" int glfwGetWindowAttrib( void * window, int attrib );	( window attrib -- )
-EXTERN: "C" void glfwSetWindowAttrib( void * window, int attrib, int value );	( window attrib value -- )
 EXTERN: "C" void glfwSetWindowUserPointer( void * window, void * pointer );	( window pointer -- )
 EXTERN: "C" void * glfwGetWindowUserPointer( void * window );	( window -- )
 EXTERN: "C" void * glfwSetWindowPosCallback( void * window, void * cbfun );	( window cbfun -- )
@@ -414,9 +345,7 @@ EXTERN: "C" void * glfwSetWindowCloseCallback( void * window, void * cbfun );	( 
 EXTERN: "C" void * glfwSetWindowRefreshCallback( void * window, void * cbfun );	( window cbfun -- )
 EXTERN: "C" void * glfwSetWindowFocusCallback( void * window, void * cbfun );	( window cbfun -- )
 EXTERN: "C" void * glfwSetWindowIconifyCallback( void * window, void * cbfun );	( window cbfun -- )
-EXTERN: "C" void * glfwSetWindowMaximizeCallback( void * window, void * cbfun );	( window cbfun -- )
 EXTERN: "C" void * glfwSetFramebufferSizeCallback( void * window, void * cbfun );	( window cbfun -- )
-EXTERN: "C" void * glfwSetWindowContentScaleCallback( void * window, void * cbfun );	( window cbfun -- )
 EXTERN: "C" void glfwPollEvents(  );	( -- )
 EXTERN: "C" void glfwWaitEvents(  );	( -- )
 EXTERN: "C" void glfwWaitEventsTimeout( double timeout );	( timeout -- )
@@ -424,7 +353,6 @@ EXTERN: "C" void glfwPostEmptyEvent(  );	( -- )
 EXTERN: "C" int glfwGetInputMode( void * window, int mode );	( window mode -- )
 EXTERN: "C" void glfwSetInputMode( void * window, int mode, int value );	( window mode value -- )
 EXTERN: "C" char * glfwGetKeyName( int key, int scancode );	( key scancode -- )
-EXTERN: "C" int glfwGetKeyScancode( int key );	( key -- )
 EXTERN: "C" int glfwGetKey( void * window, int key );	( window key -- )
 EXTERN: "C" int glfwGetMouseButton( void * window, int button );	( window button -- )
 EXTERN: "C" void glfwGetCursorPos( void * window, void * xpos, void * ypos );	( window xpos ypos -- )
@@ -441,19 +369,11 @@ EXTERN: "C" void * glfwSetCursorPosCallback( void * window, void * cbfun );	( wi
 EXTERN: "C" void * glfwSetCursorEnterCallback( void * window, void * cbfun );	( window cbfun -- )
 EXTERN: "C" void * glfwSetScrollCallback( void * window, void * cbfun );	( window cbfun -- )
 EXTERN: "C" void * glfwSetDropCallback( void * window, void * cbfun );	( window cbfun -- )
-EXTERN: "C" int glfwJoystickPresent( int jid );	( jid -- )
-EXTERN: "C" void * glfwGetJoystickAxes( int jid, void * count );	( jid count -- )
-EXTERN: "C" void * glfwGetJoystickButtons( int jid, void * count );	( jid count -- )
-EXTERN: "C" void * glfwGetJoystickHats( int jid, void * count );	( jid count -- )
-EXTERN: "C" char * glfwGetJoystickName( int jid );	( jid -- )
-EXTERN: "C" char * glfwGetJoystickGUID( int jid );	( jid -- )
-EXTERN: "C" void glfwSetJoystickUserPointer( int jid, void * pointer );	( jid pointer -- )
-EXTERN: "C" void * glfwGetJoystickUserPointer( int jid );	( jid -- )
-EXTERN: "C" int glfwJoystickIsGamepad( int jid );	( jid -- )
+EXTERN: "C" int glfwJoystickPresent( int joy );	( joy -- )
+EXTERN: "C" void * glfwGetJoystickAxes( int joy, void * count );	( joy count -- )
+EXTERN: "C" void * glfwGetJoystickButtons( int joy, void * count );	( joy count -- )
+EXTERN: "C" char * glfwGetJoystickName( int joy );	( joy -- )
 EXTERN: "C" void * glfwSetJoystickCallback( void * cbfun );	( cbfun -- )
-EXTERN: "C" int glfwUpdateGamepadMappings( char * string );	( string -- )
-EXTERN: "C" char * glfwGetGamepadName( int jid );	( jid -- )
-EXTERN: "C" int glfwGetGamepadState( int jid, void * state );	( jid state -- )
 EXTERN: "C" void glfwSetClipboardString( void * window, char * string );	( window string -- )
 EXTERN: "C" char * glfwGetClipboardString( void * window );	( window -- )
 EXTERN: "C" double glfwGetTime(  );	( -- )
@@ -468,3 +388,6 @@ EXTERN: "C" int glfwExtensionSupported( char * extension );	( extension -- )
 EXTERN: "C" void * glfwGetProcAddress( char * procname );	( procname -- )
 EXTERN: "C" int glfwVulkanSupported(  );	( -- )
 EXTERN: "C" void * glfwGetRequiredInstanceExtensions( void * count );	( count -- )
+
+\ ----===< postfix >===-----
+( none )

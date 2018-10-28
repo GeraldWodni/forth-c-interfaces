@@ -2,9 +2,9 @@ PROJECT    = glfw3
 SWIG       = swig
 BUILD      = build
 OUTPUT     = $(BUILD)/$(PROJECT)
-INCLUDE    = $(BUILD)/$(PROJECT).h
 INTERFACE  = $(PROJECT).i
-OPTIONS		= -forth -no-sectioncomments -stackcomments -use-structs
+INCLUDES   = -I/usr/include
+OPTIONS	   = -forth -no-sectioncomments -stackcomments -use-structs $(INCLUDES)
 
 all: $(OUTPUT).fs $(OUTPUT).f $(OUTPUT).fth
 	@ echo "All created"
@@ -24,13 +24,9 @@ $(OUTPUT).fth: $(OUTPUT).fsx
 $(OUTPUT).fsx: $(OUTPUT)-fsi.c
 	$(CC) -o $(OUTPUT).fsx $(OUTPUT)-fsi.c
 
-$(OUTPUT)-fsi.c: $(INCLUDE)
-	$(SWIG) $(OPTIONS) -o $(OUTPUT)-fsi.c $(INTERFACE)
-
-# obtain most recent glfw.h from github
-$(INCLUDE):
+$(OUTPUT)-fsi.c: $(INTERFACE)
 	mkdir $(BUILD)
-	wget -O $(INCLUDE) https://github.com/glfw/glfw/raw/master/include/GLFW/glfw3.h
+	$(SWIG) $(OPTIONS) -o $(OUTPUT)-fsi.c $(INTERFACE)
 
 .PHONY: clean
 

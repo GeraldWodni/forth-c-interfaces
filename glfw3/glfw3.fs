@@ -7,28 +7,20 @@
 \ As all comments are stripped during the compilation, please
 \ insert the copyright notice of the original file here.
 
+\ ----===< prefix >===-----
 c-library glfw3
 s" glfw" add-lib
 \c #include<GLFW/glfw3.h>
 
-\ ----===< int constants ===>-----
+\ ----===< int constants >===-----
 #3	constant GLFW_VERSION_MAJOR
-#3	constant GLFW_VERSION_MINOR
-#0	constant GLFW_VERSION_REVISION
+#2	constant GLFW_VERSION_MINOR
+#1	constant GLFW_VERSION_REVISION
 #1	constant GLFW_TRUE
 #0	constant GLFW_FALSE
 #0	constant GLFW_RELEASE
 #1	constant GLFW_PRESS
 #2	constant GLFW_REPEAT
-#0	constant GLFW_HAT_CENTERED
-#1	constant GLFW_HAT_UP
-#2	constant GLFW_HAT_RIGHT
-#4	constant GLFW_HAT_DOWN
-#8	constant GLFW_HAT_LEFT
-#3	constant GLFW_HAT_RIGHT_UP
-#6	constant GLFW_HAT_RIGHT_DOWN
-#9	constant GLFW_HAT_LEFT_UP
-#12	constant GLFW_HAT_LEFT_DOWN
 #-1	constant GLFW_KEY_UNKNOWN
 #32	constant GLFW_KEY_SPACE
 #39	constant GLFW_KEY_APOSTROPHE
@@ -155,8 +147,6 @@ s" glfw" add-lib
 #2	constant GLFW_MOD_CONTROL
 #4	constant GLFW_MOD_ALT
 #8	constant GLFW_MOD_SUPER
-#16	constant GLFW_MOD_CAPS_LOCK
-#32	constant GLFW_MOD_NUM_LOCK
 #0	constant GLFW_MOUSE_BUTTON_1
 #1	constant GLFW_MOUSE_BUTTON_2
 #2	constant GLFW_MOUSE_BUTTON_3
@@ -186,34 +176,6 @@ s" glfw" add-lib
 #14	constant GLFW_JOYSTICK_15
 #15	constant GLFW_JOYSTICK_16
 #15	constant GLFW_JOYSTICK_LAST
-#0	constant GLFW_GAMEPAD_BUTTON_A
-#1	constant GLFW_GAMEPAD_BUTTON_B
-#2	constant GLFW_GAMEPAD_BUTTON_X
-#3	constant GLFW_GAMEPAD_BUTTON_Y
-#4	constant GLFW_GAMEPAD_BUTTON_LEFT_BUMPER
-#5	constant GLFW_GAMEPAD_BUTTON_RIGHT_BUMPER
-#6	constant GLFW_GAMEPAD_BUTTON_BACK
-#7	constant GLFW_GAMEPAD_BUTTON_START
-#8	constant GLFW_GAMEPAD_BUTTON_GUIDE
-#9	constant GLFW_GAMEPAD_BUTTON_LEFT_THUMB
-#10	constant GLFW_GAMEPAD_BUTTON_RIGHT_THUMB
-#11	constant GLFW_GAMEPAD_BUTTON_DPAD_UP
-#12	constant GLFW_GAMEPAD_BUTTON_DPAD_RIGHT
-#13	constant GLFW_GAMEPAD_BUTTON_DPAD_DOWN
-#14	constant GLFW_GAMEPAD_BUTTON_DPAD_LEFT
-#14	constant GLFW_GAMEPAD_BUTTON_LAST
-#0	constant GLFW_GAMEPAD_BUTTON_CROSS
-#1	constant GLFW_GAMEPAD_BUTTON_CIRCLE
-#2	constant GLFW_GAMEPAD_BUTTON_SQUARE
-#3	constant GLFW_GAMEPAD_BUTTON_TRIANGLE
-#0	constant GLFW_GAMEPAD_AXIS_LEFT_X
-#1	constant GLFW_GAMEPAD_AXIS_LEFT_Y
-#2	constant GLFW_GAMEPAD_AXIS_RIGHT_X
-#3	constant GLFW_GAMEPAD_AXIS_RIGHT_Y
-#4	constant GLFW_GAMEPAD_AXIS_LEFT_TRIGGER
-#5	constant GLFW_GAMEPAD_AXIS_RIGHT_TRIGGER
-#5	constant GLFW_GAMEPAD_AXIS_LAST
-#0	constant GLFW_NO_ERROR
 #65537	constant GLFW_NOT_INITIALIZED
 #65538	constant GLFW_NO_CURRENT_CONTEXT
 #65539	constant GLFW_INVALID_ENUM
@@ -232,10 +194,6 @@ s" glfw" add-lib
 #131078	constant GLFW_AUTO_ICONIFY
 #131079	constant GLFW_FLOATING
 #131080	constant GLFW_MAXIMIZED
-#131081	constant GLFW_CENTER_CURSOR
-#131082	constant GLFW_TRANSPARENT_FRAMEBUFFER
-#131083	constant GLFW_HOVERED
-#131084	constant GLFW_FOCUS_ON_SHOW
 #135169	constant GLFW_RED_BITS
 #135170	constant GLFW_GREEN_BITS
 #135171	constant GLFW_BLUE_BITS
@@ -263,12 +221,6 @@ s" glfw" add-lib
 #139273	constant GLFW_CONTEXT_RELEASE_BEHAVIOR
 #139274	constant GLFW_CONTEXT_NO_ERROR
 #139275	constant GLFW_CONTEXT_CREATION_API
-#139276	constant GLFW_SCALE_TO_MONITOR
-#143361	constant GLFW_COCOA_RETINA_FRAMEBUFFER
-#143362	constant GLFW_COCOA_FRAME_NAME
-#143363	constant GLFW_COCOA_GRAPHICS_SWITCHING
-#147457	constant GLFW_X11_CLASS_NAME
-#147458	constant GLFW_X11_INSTANCE_NAME
 #0	constant GLFW_NO_API
 #196609	constant GLFW_OPENGL_API
 #196610	constant GLFW_OPENGL_ES_API
@@ -281,7 +233,6 @@ s" glfw" add-lib
 #208897	constant GLFW_CURSOR
 #208898	constant GLFW_STICKY_KEYS
 #208899	constant GLFW_STICKY_MOUSE_BUTTONS
-#208900	constant GLFW_LOCK_KEY_MODS
 #212993	constant GLFW_CURSOR_NORMAL
 #212994	constant GLFW_CURSOR_HIDDEN
 #212995	constant GLFW_CURSOR_DISABLED
@@ -290,7 +241,6 @@ s" glfw" add-lib
 #217090	constant GLFW_RELEASE_BEHAVIOR_NONE
 #221185	constant GLFW_NATIVE_CONTEXT_API
 #221186	constant GLFW_EGL_CONTEXT_API
-#221187	constant GLFW_OSMESA_CONTEXT_API
 #221185	constant GLFW_ARROW_CURSOR
 #221186	constant GLFW_IBEAM_CURSOR
 #221187	constant GLFW_CROSSHAIR_CURSOR
@@ -299,9 +249,6 @@ s" glfw" add-lib
 #221190	constant GLFW_VRESIZE_CURSOR
 #262145	constant GLFW_CONNECTED
 #262146	constant GLFW_DISCONNECTED
-#327681	constant GLFW_JOYSTICK_HAT_BUTTONS
-#331777	constant GLFW_COCOA_CHDIR_RESOURCES
-#331778	constant GLFW_COCOA_MENUBAR
 #-1	constant GLFW_DONT_CARE
 
 \ -------===< structs >===--------
@@ -327,11 +274,6 @@ begin-structure GLFWimage
 	drop 0 4 +field GLFWimage-width
 	drop 8 8 +field GLFWimage-pixels
 drop 16 end-structure
-\ GLFWgamepadstate
-begin-structure GLFWgamepadstate
-	drop 0 15 +field GLFWgamepadstate-buttons
-	drop 16 24 +field GLFWgamepadstate-axes
-drop 40 end-structure
 
 \ ------===< callbacks >===-------
 c-callback GLFWglproc:  -- void	( <noname> -- )
@@ -343,9 +285,7 @@ c-callback GLFWwindowclosefun: a -- void	( <noname> -- )
 c-callback GLFWwindowrefreshfun: a -- void	( <noname> -- )
 c-callback GLFWwindowfocusfun: a n -- void	( <noname> <noname> -- )
 c-callback GLFWwindowiconifyfun: a n -- void	( <noname> <noname> -- )
-c-callback GLFWwindowmaximizefun: a n -- void	( <noname> <noname> -- )
 c-callback GLFWframebuffersizefun: a n n -- void	( <noname> <noname> <noname> -- )
-c-callback GLFWwindowcontentscalefun: a r r -- void	( <noname> <noname> <noname> -- )
 c-callback GLFWmousebuttonfun: a n n n -- void	( <noname> <noname> <noname> <noname> -- )
 c-callback GLFWcursorposfun: a r r -- void	( <noname> <noname> <noname> -- )
 c-callback GLFWcursorenterfun: a n -- void	( <noname> <noname> -- )
@@ -360,19 +300,14 @@ c-callback GLFWjoystickfun: n n -- void	( <noname> <noname> -- )
 \ ------===< functions >===-------
 c-function glfwInit glfwInit  -- n	( -- )
 c-function glfwTerminate glfwTerminate  -- void	( -- )
-c-function glfwInitHint glfwInitHint n n -- void	( hint value -- )
 c-function glfwGetVersion glfwGetVersion a a a -- void	( major minor rev -- )
 c-function glfwGetVersionString glfwGetVersionString  -- s	( -- )
-c-function glfwGetError glfwGetError a -- n	( description -- )
 c-function glfwSetErrorCallback glfwSetErrorCallback a -- a	( cbfun -- )
 c-function glfwGetMonitors glfwGetMonitors a -- a	( count -- )
 c-function glfwGetPrimaryMonitor glfwGetPrimaryMonitor  -- a	( -- )
 c-function glfwGetMonitorPos glfwGetMonitorPos a a a -- void	( monitor xpos ypos -- )
 c-function glfwGetMonitorPhysicalSize glfwGetMonitorPhysicalSize a a a -- void	( monitor widthMM heightMM -- )
-c-function glfwGetMonitorContentScale glfwGetMonitorContentScale a a a -- void	( monitor xscale yscale -- )
 c-function glfwGetMonitorName glfwGetMonitorName a -- s	( monitor -- )
-c-function glfwSetMonitorUserPointer glfwSetMonitorUserPointer a a -- void	( monitor pointer -- )
-c-function glfwGetMonitorUserPointer glfwGetMonitorUserPointer a -- a	( monitor -- )
 c-function glfwSetMonitorCallback glfwSetMonitorCallback a -- a	( cbfun -- )
 c-function glfwGetVideoModes glfwGetVideoModes a a -- a	( monitor count -- )
 c-function glfwGetVideoMode glfwGetVideoMode a -- a	( monitor -- )
@@ -381,7 +316,6 @@ c-function glfwGetGammaRamp glfwGetGammaRamp a -- a	( monitor -- )
 c-function glfwSetGammaRamp glfwSetGammaRamp a a -- void	( monitor ramp -- )
 c-function glfwDefaultWindowHints glfwDefaultWindowHints  -- void	( -- )
 c-function glfwWindowHint glfwWindowHint n n -- void	( hint value -- )
-c-function glfwWindowHintString glfwWindowHintString n s -- void	( hint value -- )
 c-function glfwCreateWindow glfwCreateWindow n n s a a -- a	( width height title monitor share -- )
 c-function glfwDestroyWindow glfwDestroyWindow a -- void	( window -- )
 c-function glfwWindowShouldClose glfwWindowShouldClose a -- n	( window -- )
@@ -396,20 +330,15 @@ c-function glfwSetWindowAspectRatio glfwSetWindowAspectRatio a n n -- void	( win
 c-function glfwSetWindowSize glfwSetWindowSize a n n -- void	( window width height -- )
 c-function glfwGetFramebufferSize glfwGetFramebufferSize a a a -- void	( window width height -- )
 c-function glfwGetWindowFrameSize glfwGetWindowFrameSize a a a a a -- void	( window left top right bottom -- )
-c-function glfwGetWindowContentScale glfwGetWindowContentScale a a a -- void	( window xscale yscale -- )
-c-function glfwGetWindowOpacity glfwGetWindowOpacity a -- r	( window -- )
-c-function glfwSetWindowOpacity glfwSetWindowOpacity a r -- void	( window opacity -- )
 c-function glfwIconifyWindow glfwIconifyWindow a -- void	( window -- )
 c-function glfwRestoreWindow glfwRestoreWindow a -- void	( window -- )
 c-function glfwMaximizeWindow glfwMaximizeWindow a -- void	( window -- )
 c-function glfwShowWindow glfwShowWindow a -- void	( window -- )
 c-function glfwHideWindow glfwHideWindow a -- void	( window -- )
 c-function glfwFocusWindow glfwFocusWindow a -- void	( window -- )
-c-function glfwRequestWindowAttention glfwRequestWindowAttention a -- void	( window -- )
 c-function glfwGetWindowMonitor glfwGetWindowMonitor a -- a	( window -- )
 c-function glfwSetWindowMonitor glfwSetWindowMonitor a a n n n n n -- void	( window monitor xpos ypos width height refreshRate -- )
 c-function glfwGetWindowAttrib glfwGetWindowAttrib a n -- n	( window attrib -- )
-c-function glfwSetWindowAttrib glfwSetWindowAttrib a n n -- void	( window attrib value -- )
 c-function glfwSetWindowUserPointer glfwSetWindowUserPointer a a -- void	( window pointer -- )
 c-function glfwGetWindowUserPointer glfwGetWindowUserPointer a -- a	( window -- )
 c-function glfwSetWindowPosCallback glfwSetWindowPosCallback a a -- a	( window cbfun -- )
@@ -418,9 +347,7 @@ c-function glfwSetWindowCloseCallback glfwSetWindowCloseCallback a a -- a	( wind
 c-function glfwSetWindowRefreshCallback glfwSetWindowRefreshCallback a a -- a	( window cbfun -- )
 c-function glfwSetWindowFocusCallback glfwSetWindowFocusCallback a a -- a	( window cbfun -- )
 c-function glfwSetWindowIconifyCallback glfwSetWindowIconifyCallback a a -- a	( window cbfun -- )
-c-function glfwSetWindowMaximizeCallback glfwSetWindowMaximizeCallback a a -- a	( window cbfun -- )
 c-function glfwSetFramebufferSizeCallback glfwSetFramebufferSizeCallback a a -- a	( window cbfun -- )
-c-function glfwSetWindowContentScaleCallback glfwSetWindowContentScaleCallback a a -- a	( window cbfun -- )
 c-function glfwPollEvents glfwPollEvents  -- void	( -- )
 c-function glfwWaitEvents glfwWaitEvents  -- void	( -- )
 c-function glfwWaitEventsTimeout glfwWaitEventsTimeout r -- void	( timeout -- )
@@ -428,7 +355,6 @@ c-function glfwPostEmptyEvent glfwPostEmptyEvent  -- void	( -- )
 c-function glfwGetInputMode glfwGetInputMode a n -- n	( window mode -- )
 c-function glfwSetInputMode glfwSetInputMode a n n -- void	( window mode value -- )
 c-function glfwGetKeyName glfwGetKeyName n n -- s	( key scancode -- )
-c-function glfwGetKeyScancode glfwGetKeyScancode n -- n	( key -- )
 c-function glfwGetKey glfwGetKey a n -- n	( window key -- )
 c-function glfwGetMouseButton glfwGetMouseButton a n -- n	( window button -- )
 c-function glfwGetCursorPos glfwGetCursorPos a a a -- void	( window xpos ypos -- )
@@ -445,19 +371,11 @@ c-function glfwSetCursorPosCallback glfwSetCursorPosCallback a a -- a	( window c
 c-function glfwSetCursorEnterCallback glfwSetCursorEnterCallback a a -- a	( window cbfun -- )
 c-function glfwSetScrollCallback glfwSetScrollCallback a a -- a	( window cbfun -- )
 c-function glfwSetDropCallback glfwSetDropCallback a a -- a	( window cbfun -- )
-c-function glfwJoystickPresent glfwJoystickPresent n -- n	( jid -- )
-c-function glfwGetJoystickAxes glfwGetJoystickAxes n a -- a	( jid count -- )
-c-function glfwGetJoystickButtons glfwGetJoystickButtons n a -- a	( jid count -- )
-c-function glfwGetJoystickHats glfwGetJoystickHats n a -- a	( jid count -- )
-c-function glfwGetJoystickName glfwGetJoystickName n -- s	( jid -- )
-c-function glfwGetJoystickGUID glfwGetJoystickGUID n -- s	( jid -- )
-c-function glfwSetJoystickUserPointer glfwSetJoystickUserPointer n a -- void	( jid pointer -- )
-c-function glfwGetJoystickUserPointer glfwGetJoystickUserPointer n -- a	( jid -- )
-c-function glfwJoystickIsGamepad glfwJoystickIsGamepad n -- n	( jid -- )
+c-function glfwJoystickPresent glfwJoystickPresent n -- n	( joy -- )
+c-function glfwGetJoystickAxes glfwGetJoystickAxes n a -- a	( joy count -- )
+c-function glfwGetJoystickButtons glfwGetJoystickButtons n a -- a	( joy count -- )
+c-function glfwGetJoystickName glfwGetJoystickName n -- s	( joy -- )
 c-function glfwSetJoystickCallback glfwSetJoystickCallback a -- a	( cbfun -- )
-c-function glfwUpdateGamepadMappings glfwUpdateGamepadMappings s -- n	( string -- )
-c-function glfwGetGamepadName glfwGetGamepadName n -- s	( jid -- )
-c-function glfwGetGamepadState glfwGetGamepadState n a -- n	( jid state -- )
 c-function glfwSetClipboardString glfwSetClipboardString a s -- void	( window string -- )
 c-function glfwGetClipboardString glfwGetClipboardString a -- s	( window -- )
 c-function glfwGetTime glfwGetTime  -- r	( -- )
@@ -473,4 +391,5 @@ c-function glfwGetProcAddress glfwGetProcAddress s -- a	( procname -- )
 c-function glfwVulkanSupported glfwVulkanSupported  -- n	( -- )
 c-function glfwGetRequiredInstanceExtensions glfwGetRequiredInstanceExtensions a -- a	( count -- )
 
+\ ----===< postfix >===-----
 end-c-library
